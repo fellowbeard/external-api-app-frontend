@@ -9,12 +9,18 @@ export default {
   },
   created: function () {
     this.postsIndex();
+    this.newsIndex();
   },
   methods: {
     postsIndex: function () {
       axios.get("https://jsonplaceholder.typicode.com/posts").then((response) => {
         console.log(response.data);
         this.posts = response.data;
+      });
+    },
+    newsIndex: function () {
+      axios.get("/news_api").then((response) => {
+        console.log(response.data);
       });
     },
   },
